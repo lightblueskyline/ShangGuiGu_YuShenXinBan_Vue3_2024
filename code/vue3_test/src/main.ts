@@ -3,4 +3,6 @@ import { createApp } from 'vue'
 // 引入 App 根組件
 import App from './App.vue'
 
-createApp(App).mount('#app')
+// #app => code\vue3_test\index.html => <div id="app"></div>
+const app = createApp(App)
+app.mount('#app')

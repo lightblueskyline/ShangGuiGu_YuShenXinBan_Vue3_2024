@@ -14,3 +14,13 @@ npm run dev
 # Install the TypeScript compiler
 npm install -g typescript
 ```
+
+## setup
+
+```ps
+# 插件，可在 <script setup lang="ts"> 中定義組件名稱 <script setup lang="ts" name="***">
+npm install vite-plugin-vue-setup-extend -D
+
+# ref 基本類型數據的響應式變量
+# reactive 對象類型數據的響應式變量
+```

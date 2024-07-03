@@ -1,15 +1,16 @@
 <template>
-    <!--HTML-->
-    <div class="app">
-        Hello World!
+    <div>
+        <Person></Person>
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 // JS TS
-export default {
-    name: 'App' // 組件名稱
-}
+// export default {
+//     name: 'App' // 組件名稱
+// }
+
+import Person from './components/Person.vue';
 </script>
 
 <style scoped>
