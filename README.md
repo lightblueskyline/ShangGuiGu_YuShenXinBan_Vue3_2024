@@ -22,6 +22,8 @@ npm install -g typescript
 ## setup
 
 ```ps
+# 美化 GIT Log
+git config --global alias.adog "log --all --decorate --oneline --graph"
 # 插件，可在 <script setup lang="ts"> 中定義組件名稱 <script setup lang="ts" name="***">
 # -D, --save-dev: Package will appear in your devDependencies.
 npm install vite-plugin-vue-setup-extend -D
