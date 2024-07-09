@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="App">
 // JS TS
 // export default {
 //     name: 'App' // 組件名稱
