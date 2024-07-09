@@ -27,5 +27,52 @@ npm install -g typescript
 npm install vite-plugin-vue-setup-extend -D
 
 # ref 基本類型數據的響應式變量
-# reactive 只能定義對象類型數據的響應式變量；重新分配對象之後，會失去響應式(需要使用 Object.assign(car, { brand: '奧拓', price: 6 }) 重新分派)
+# reactive 只能定義對象類型數據的響應式變量；重新分配對象之後，會失去響應式(需要使用 Object.assign(car, { brand: '奧拓', price: 6 }) 重新分派，才會保持響應式)
+```
+
+## toRefs & toRef
+
+```javascript
+let person = reactive({
+    name: 'Name.33',
+    age: 33
+})
+let { name, age } = toRefs(person)
+let age1 = toRef(person, 'age')
+```
+
+## computed 計算屬性
+
+```javascript
+// v-model 雙向綁定 (姓：<input type="text" v-model="firstName">)
+
+// computed 計算屬性
+let firstName = ref('張')
+let lastName = ref('三')
+// 如此定義的計算屬性，只可讀，不可修改
+// let fullName = computed(() => {
+//     return firstName.value + '-' + lastName.value
+// })
+//
+let fullName = computed({
+    get() {
+        return `${firstName.value}-${lastName.value}`
+    },
+    set(newValue) {
+        const [str1, str2] = newValue.split('-')
+        firstName.value = str1
+        lastName.value = str2
+    }
+})
+```
+
+## watch 監視數據的變化
+
+```javascript
+/**
+ * 1. ref 定義的數據
+ * 2. reactive 定義的數據
+ * 3. 函數返回一個值
+ * 4. 一個包含上述内容的數組
+ */
 ```
