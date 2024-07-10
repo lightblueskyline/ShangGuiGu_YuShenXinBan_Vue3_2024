@@ -78,3 +78,20 @@ let fullName = computed({
  * 4. 一個包含上述内容的數組
  */
 ```
+
+## [生命周期](https://cn.vuejs.org/guide/essentials/lifecycle.html)
+
+### [組合式 API: 生命周期鈎子](https://cn.vuejs.org/api/composition-api-lifecycle.html#onmounted)
+
+```javascript
+/**
+ * 
+ */
+```
+
+## axios
+
+```ps
+# 安裝
+npm install axios
+```

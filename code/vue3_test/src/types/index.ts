@@ -1,11 +1,12 @@
 /**
  * 定義 Person 接口
- * 'export' 分別暴露
+ * 'export' -> 分別暴露
  */
 export interface IPerson {
     ID: string;
     Name: string;
     Age: number;
+    OptionalParam?: number
 };
 
 /**

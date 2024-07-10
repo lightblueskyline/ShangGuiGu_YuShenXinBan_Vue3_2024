@@ -70,6 +70,10 @@
         <h2 ref="title2">陝西</h2>
         <h3>西安</h3>
         <button type="button" @click="showLogH2">輸出 H2 元素</button>
+        <hr>
+        <ul>
+            <li v-for="item in personList" :key="item.ID">{{ item.Name }} -- {{ item.Age }}</li>
+        </ul>
     </div>
 </template>
 
@@ -77,9 +81,36 @@
 <!--通過安裝插件 npm install vite-plugin-vue-setup-extend -D-->
 <!--無需再書寫 export default -> name:"Person"-->
 <script setup lang="ts" name="Person">
-import { ref, reactive, toRefs, toRef, computed, watch, watchEffect, defineExpose } from 'vue';
+import {
+    ref, reactive, toRefs, toRef, computed, watch, watchEffect,
+    onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted
+} from 'vue';
 import { type IPerson, type PersonList } from '../types';
+import axios from 'axios';
 
+// 生命周期
+console.log('創建')
+onBeforeMount(() => {
+    console.log('onBeforeMount')
+})
+onMounted(() => {
+    console.log('onMounted')
+})
+onBeforeUpdate(() => {
+    console.log('onBeforeUpdate')
+})
+onUpdated(() => {
+    console.log('onUpdated')
+})
+
+// 接收
+// let propsValue = defineProps(['personList']);
+// 接受 & 限制類型
+// defineProps<{ personList: PersonList }>()
+// 接受 & 限制類型 & 限制必要性 & 指定默認值
+withDefaults(defineProps<{ personList?: PersonList }>(), {
+    personList: () => [{ ID: '0001', Name: '康師傅·王麻子·特侖蘇', Age: 11 }]
+})
 // 數據
 // let name = 'Name' // 此時變量非響應式
 // let name = ref('Name') // ref 基本類型的響應式變量
@@ -88,17 +119,17 @@ import { type IPerson, type PersonList } from '../types';
 let tel = '13888888888' // 此時變量非響應
 //
 let car = reactive({ brand: '長城-TANK300', price: 33 })
-console.log(car)
+// console.log(car)
 //
 let games = reactive([
     { id: '00001', name: 'GAME_00001' },
     { id: '00003', name: 'GAME_00002' },
     { id: '00003', name: 'GAME_00003' }
 ])
-console.log(games)
+// console.log(games)
 //
 let car1 = ref({ brand: '長城-TANK300', price: 33 })
-console.log(car1)
+// console.log(car1)
 //
 let person = reactive({
     name: 'Name.33',
@@ -163,6 +194,8 @@ let tsPersonList1: PersonList = [
     { ID: '0002', Name: 'Name.33', Age: 33 },
     { ID: '0003', Name: 'Name.33', Age: 33 }
 ]
+//
+let dogList = reactive([])
 
 // 方法
 function changeName() {
@@ -196,7 +229,7 @@ function changePersonInfo() {
     age.value += 1
     name.value = 'Name.' + age.value.toString()
     // person 對象中的 age 值會同步變更
-    console.log(age1.value)
+    // console.log(age1.value)
     age1.value = 111
 }
 /** 修改全名 */
@@ -208,7 +241,7 @@ function changeSum() {
     sum.value += 1
 }
 let stopWatch = watch(sum, (newValue, oldValue) => {
-    console.log(`原始值：${oldValue} 新值：${newValue}`)
+    // console.log(`原始值：${oldValue} 新值：${newValue}`)
     if (newValue >= 10) {
         // 停止監視
         stopWatch()
@@ -234,7 +267,7 @@ function changeRefPerson() {
 * 深度侦听需要遍历被侦听对象中的所有嵌套的属性，当用于大型数据结构时，开销很大。因此请只在必要时才使用它，并且要留意性能。
 */
 watch(refPerson, (newValue, oldValue) => {
-    console.log('refPerson 變化了 ', newValue, oldValue)
+    // console.log('refPerson 變化了 ', newValue, oldValue)
 }, { deep: true, immediate: true })
 /** 修改 reactivePerson 姓名 */
 function changeReactivePersonName() {
@@ -256,7 +289,7 @@ function changeReactivePerson() {
 * 隱式創建了深層監聽，此種監聽不可關閉
 */
 watch(reactivePerson, (newValue, oldValue) => {
-    console.log('reactivePerson 變化了 ', newValue, oldValue);
+    // console.log('reactivePerson 變化了 ', newValue, oldValue);
 })
 /** 修改 reactivePerson1 姓名 */
 function changeReactivePerson1Name() {
@@ -289,17 +322,17 @@ function changeReactivePerson1Car() {
 * 該屬性為基本類型，需要寫成函數類型
 */
 watch(() => { return reactivePerson1.name }, (newValue, oldValue) => {
-    console.log('reactivePerson1.name 變化了 ', newValue, oldValue)
+    // console.log('reactivePerson1.name 變化了 ', newValue, oldValue)
 })
 // () => reactivePerson1.car 監視對象的地址值，需要關注細節，需要手動開啓深度監視 { deep: true }
 watch(() => reactivePerson1.car, (newValue, oldValue) => {
-    console.log('reactivePerson1.car 變化了 ', newValue, oldValue)
+    // console.log('reactivePerson1.car 變化了 ', newValue, oldValue)
 }, { deep: true })
 /**
 * 情況五：監視上述多個數據
 */
 watch([() => reactivePerson1.age, () => reactivePerson1.car], (newValue, oldValue) => {
-    console.log('情況五：監視上述多個數據', newValue, oldValue)
+    // console.log('情況五：監視上述多個數據', newValue, oldValue)
 }, { deep: true })
 /** watchEffect 修改水溫 +2 */
 function changeWaterTemperature() {
@@ -313,14 +346,14 @@ function changeWaterLevel() {
 * 自動分析被監聽的對象
 */
 watchEffect(() => {
-    console.log('@ watchEffect 啓動立即運行')
+    // console.log('@ watchEffect 啓動立即運行')
     if (waterTemperature.value >= 20 || waterLevel.value >= 10) {
-        console.log('向服務器發送請求')
+        // console.log('向服務器發送請求')
     }
 })
 /** 標簽的 ref 屬性 */
 function showLogH2() {
-    console.log(title2.value)
+    // console.log(title2.value)
 }
 defineExpose({ reactivePerson })
 </script>
