@@ -1,36 +1,54 @@
 <template>
-    <div>
-        <Person :person-list="personList"></Person>
+    <div class="app">
+        <h2 class="title">Hello, Vue 3</h2>
+        <!--導航區-->
+        <div class="navigation">
+            <RouterLink to="/home" active-class="">首頁</RouterLink>
+            <RouterLink to="/news" active-class="">新聞</RouterLink>
+            <RouterLink to="/about" active-class="">關於</RouterLink>
+        </div>
+        <!--展示區-->
+        <div class="main-content">
+            <RouterView></RouterView>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts" name="App">
-// JS TS
-// export default {
-//     name: 'App' // 組件名稱
-// }
-
-import Person from './components/Person.vue'
-import { reactive, onMounted } from 'vue'
-import { type PersonList } from './types'
-
-let personList = reactive<PersonList>([
-    { ID: '0001', Name: 'Name_0001', Age: 11 },
-    { ID: '0002', Name: 'Name_0002', Age: 12 },
-    { ID: '0003', Name: 'Name_0003', Age: 13, OptionalParam: 111 }
-])
-
-onMounted(() => {
-    console.log('Father - onMounted')
-})
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
-/* 樣式 */
-.app {
-    background-color: #DDD;
-    box-shadow: 0 0 10px;
+/* App */
+.title {
+    text-align: center;
+    word-spacing: 5px;
+    margin: 30px 0;
+    height: 70px;
+    line-height: 70px;
+    background-image: linear-gradient(45deg, gray, white);
     border-radius: 10px;
-    padding: 20px;
+    box-shadow: 0 0 2px;
+    font-size: 30px;
+}
+
+.navigate {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 100px;
+}
+
+.navigation a {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    background-color: #DDD;
+    box-shadow: 0 0 2px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
 }
 </style>

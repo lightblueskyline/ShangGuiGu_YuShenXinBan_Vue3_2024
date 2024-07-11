@@ -94,4 +94,13 @@ let fullName = computed({
 ```ps
 # 安裝
 npm install axios
+
+# axios 的攔截器
+```
+
+## 路由
+
+```ps
+# 安裝
+npm install vue-router
 ```

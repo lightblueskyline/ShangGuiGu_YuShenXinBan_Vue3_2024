@@ -74,6 +74,10 @@
         <ul>
             <li v-for="item in personList" :key="item.ID">{{ item.Name }} -- {{ item.Age }}</li>
         </ul>
+        <hr>
+        <img v-for="(item, index) in dogList" :key="index" :src="item" alt="">
+        <br>
+        <button type="button" @click="getAnotherDog">再來一隻狗</button>
     </div>
 </template>
 
@@ -86,7 +90,11 @@ import {
     onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted
 } from 'vue';
 import { type IPerson, type PersonList } from '../types';
-import axios from 'axios';
+// import axios from 'axios';
+import useDog from '../hooks/useDog'
+
+// 調用 hooks
+const { dogList, getAnotherDog } = useDog()
 
 // 生命周期
 console.log('創建')
@@ -194,8 +202,10 @@ let tsPersonList1: PersonList = [
     { ID: '0002', Name: 'Name.33', Age: 33 },
     { ID: '0003', Name: 'Name.33', Age: 33 }
 ]
-//
-let dogList = reactive([])
+// https://dog.ceo/api/breed/pembroke/images/random
+// let dogList = reactive([
+//     'https://images.dog.ceo/breeds/pembroke/n02113023_4881.jpg'
+// ])
 
 // 方法
 function changeName() {
@@ -356,6 +366,17 @@ function showLogH2() {
     // console.log(title2.value)
 }
 defineExpose({ reactivePerson })
+/** 再來一隻狗 */
+// async function getAnotherDog() {
+//     try {
+//         let response = await axios.get('https://dog.ceo/api/breed/pembroke/images/random')
+//         if (response.status === 200) {
+//             dogList.push(response.data.message)
+//         }
+//     } catch (error) {
+//         alert(error)
+//     }
+// }
 </script>
 
 <style scoped>
@@ -368,5 +389,10 @@ defineExpose({ reactivePerson })
 
 button {
     margin: 0 5px;
+}
+
+img {
+    height: 111px;
+    margin-right: 6px;
 }
 </style>
