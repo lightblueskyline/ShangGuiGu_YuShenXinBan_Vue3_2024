@@ -5,7 +5,7 @@
         <div class="navigation">
             <RouterLink to="/home" active-class="">首頁</RouterLink>
             <RouterLink to="/news" active-class="">新聞</RouterLink>
-            <RouterLink to="/about" active-class="">關於</RouterLink>
+            <router-link to="/about" active-class="">關於</router-link>
         </div>
         <!--展示區-->
         <div class="main-content">

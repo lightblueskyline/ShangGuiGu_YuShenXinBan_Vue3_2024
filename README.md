@@ -103,4 +103,9 @@ npm install axios
 ```ps
 # 安裝
 npm install vue-router
+
+# 路由組件：依靠路由規則渲染出的組件 放置於： ./pages or ./views
+# 一般組件：依靠手寫標簽渲染出的組件 放置於： ./components
+
+# 路由器的工作模式 1.history 2.hash
 ```
