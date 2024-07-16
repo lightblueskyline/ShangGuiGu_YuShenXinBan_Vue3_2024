@@ -18,9 +18,20 @@
                 <!--第一種寫法-->
                 <!-- <router-link :to="`/news/detail/${item.ID}/${item.title/${item.content}`">{{ item.title }}</router-link> -->
                 <!--第二種寫法 params-->
-                <router-link :to="{
+                <!-- <router-link :to="{
                     name: 'detailParamsPage',
                     params: {
+                        id: item.ID,
+                        title: item.title,
+                        content: item.content
+                    }
+                }">
+                    {{ item.title }}
+                </router-link> -->
+                <!-- 路由的 Props - query 配置 -->
+                <router-link :to="{
+                    name: 'detailPropsPage',
+                    query: {
                         id: item.ID,
                         title: item.title,
                         content: item.content

@@ -22,10 +22,28 @@ const router = createRouter({
                 //     path: 'detail', // 子級無需 '/'
                 //     component: () => import("../pages/DetailQuery.vue")
                 // },
+                // {
+                //     name: 'detailParamsPage', // 此情形，只能使用命名路由
+                //     path: 'detail/:id/:title/:content?', // 子級無需 '/'
+                //     component: () => import("../pages/DetailParams.vue")
+                // },
+                // {
+                //     // 路由的 Props 配置
+                //     name: 'detailPropsPage', // 此情形，只能使用命名路由
+                //     path: 'detail/:id/:title/:content?', // 子級無需 '/'
+                //     component: () => import("../pages/DetailProps.vue"),
+                //     // 第一種寫法：將路由收到的所有 params 參數作爲 props 傳遞給路由組件
+                //     // props: true // props: true，將路由參數傳遞給子組件
+                // },
                 {
-                    name: 'detailParamsPage', // 此情形，只能使用命名路由
-                    path: 'detail/:id/:title/:content?', // 子級無需 '/'
-                    component: () => import("../pages/DetailParams.vue")
+                    // 路由的 Props 配置
+                    name: 'detailPropsPage', // 此情形，只能使用命名路由
+                    path: 'detail', // 子級無需 '/'
+                    component: () => import("../pages/DetailProps.vue"),
+                    // 第二種寫法：自行決定將什麽作爲 props 傳遞給路由組件
+                    props(route) {
+                        return route.query
+                    }
                 },
             ]
         },
