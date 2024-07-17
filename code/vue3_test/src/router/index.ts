@@ -50,6 +50,10 @@ const router = createRouter({
         {
             path: '/about',
             component: () => import("../pages/About.vue")
+        },
+        {
+            path: '/',
+            redirect: '/home' // 重定向
         }
     ]
 })

@@ -5,6 +5,17 @@
 </template>
 
 <script setup lang="ts" name="Home">
+// 編程式路由導航
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+onMounted(() => {
+    setTimeout(() => {
+        router.push('/about');
+    }, 3000);
+})
 </script>
 
 <style scoped>

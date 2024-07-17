@@ -108,4 +108,20 @@ npm install vue-router
 # 一般組件：依靠手寫標簽渲染出的組件 放置於： ./components
 
 # 路由器的工作模式 1.history 2.hash
+
+# 路由的 replace 屬性，默認為 push 模式
+# <RouterLink replace to="/home" active-class="">首頁</RouterLink>
+
+# 編程式導航：脫離 <RouterLink> 實現路由跳轉
+```
+
+## 狀態管理工具 [pinia](https://pinia.vuejs.org/)
+
+```ps
+# 安裝
+npm install pinia
+
+# 使用庫，生成 ID
+npm install uuid
+npm install nanoid
 ```

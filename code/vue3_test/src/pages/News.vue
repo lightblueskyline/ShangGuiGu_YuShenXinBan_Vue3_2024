@@ -28,6 +28,8 @@
                 }">
                     {{ item.title }}
                 </router-link> -->
+                <!--編程式導航-->
+                <button type="button" @click="showNewsDetail(item)">查看新聞</button>
                 <!-- 路由的 Props - query 配置 -->
                 <router-link :to="{
                     name: 'detailPropsPage',
@@ -50,7 +52,7 @@
 
 <script setup lang="ts" name="News">
 import { reactive } from 'vue'
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView, RouterLink, useRouter } from 'vue-router'
 
 const newsList = reactive([
     { ID: '0001', title: '新聞標題一', content: '新聞內容一' },
@@ -58,6 +60,25 @@ const newsList = reactive([
     { ID: '0003', title: '新聞標題三', content: '新聞內容三' },
     { ID: '0004', title: '新聞標題四', content: '新聞內容四' },
 ])
+const router = useRouter()
+interface INews {
+    ID: string,
+    title: string,
+    content: string
+}
+
+function showNewsDetail(news: INews) {
+    // 同 <router-link> 中 to 的寫法
+    // router.push
+    router.replace({
+        name: 'detailPropsPage',
+        query: {
+            id: news.ID,
+            title: news.title,
+            content: news.content
+        }
+    })
+}
 </script>
 
 <style scoped>
