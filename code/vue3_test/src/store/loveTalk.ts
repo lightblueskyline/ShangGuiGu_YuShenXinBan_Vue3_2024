@@ -1,8 +1,9 @@
+import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import axios from "axios";
 import { nanoid } from 'nanoid'
 
-export const useLoveTalkStore = defineStore('loveTalk', {
+/* export const useLoveTalkStore = defineStore('loveTalk', {
     // actions 中放置動作函數，用於響應組件中的動作
     actions: {
         async getOneLoveTalk() {
@@ -24,4 +25,21 @@ export const useLoveTalkStore = defineStore('loveTalk', {
             loveTalkList: JSON.parse(localStorage.getItem('loveTalkList') as string) || []
         }
     }
-})
+}) */
+
+// store 組合式寫法
+export const useLoveTalkStore = defineStore('loveTalk',
+    () => {
+        // state()
+        const loveTalkList = reactive(JSON.parse(localStorage.getItem('loveTalkList') as string) || [])
+
+        // Action
+        async function getOneLoveTalk() {
+            // 連續解構、賦值、重命名
+            let { data: { content: message } } = await axios.get('https://api.uomg.com/api/rand.qinghua?format=json')
+            let tempObj = { ID: nanoid(), content: message }
+            loveTalkList.unshift(tempObj)
+        }
+
+        return { loveTalkList, getOneLoveTalk }
+    })
