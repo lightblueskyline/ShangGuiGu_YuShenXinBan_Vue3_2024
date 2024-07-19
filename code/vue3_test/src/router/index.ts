@@ -54,7 +54,9 @@ const router = createRouter({
         {
             path: '/',
             redirect: '/home' // 重定向
-        }
+        },
+        // 01_props
+        { path: '/01_props', component: () => import('../pages/01_props/Father.vue') },
     ]
 })
 

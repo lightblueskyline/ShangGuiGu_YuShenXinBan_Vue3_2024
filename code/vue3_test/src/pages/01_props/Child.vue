@@ -1,6 +1,6 @@
 <template>
     <div class="child">
-        <h3>我是子组件</h3>
+        <h3>子组件</h3>
         <h4>玩具：{{ toy }}</h4>
     </div>
 </template>
@@ -12,7 +12,7 @@ let toy = ref('汽車人.擎天柱')
 </script>
 
 <style scoped>
-.father {
+.child {
     background-color: skyblue;
     padding: 10px;
     border-radius: 10px;

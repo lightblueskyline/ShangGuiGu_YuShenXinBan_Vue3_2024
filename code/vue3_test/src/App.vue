@@ -1,20 +1,18 @@
 <template>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">導航區</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <router-link active-class="active" class="list-group-item" to="/01_props">01_props</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <router-link active-class="active" class="list-group-item"
+                        to="/02_custom_event">02_custom_event</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <router-link active-class="active" class="list-group-item" to="/03_mitt">03_mitt</router-link>
                 </li>
             </ul>
         </div>
@@ -25,7 +23,7 @@
         <!-- Header -->
         <header class="bg-primary text-white text-center py-5">
             <div class="container">
-                <h1>Welcome to My Website</h1>
+                <h1>Vue3 組件之間通信</h1>
                 <p class="lead">A simple, responsive template with Bootstrap 4</p>
             </div>
         </header>
@@ -35,9 +33,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2>Showcase Section</h2>
-                        <p class="lead">This is a section where you can showcase your content.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+                        <RouterView></RouterView>
                     </div>
                 </div>
             </div>
@@ -46,9 +42,7 @@
 </template>
 
 <script setup lang="ts" name="App">
-// import { ref } from "vue";
-import Count from "./components/Count.vue";
-import LoveTalk from "./components/LoveTalk.vue";
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
