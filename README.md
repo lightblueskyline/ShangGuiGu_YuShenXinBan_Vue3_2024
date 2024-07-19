@@ -118,8 +118,17 @@ npm install vue-router
 ## 狀態管理工具 [pinia](https://pinia.vuejs.org/)
 
 ```ps
+# 搭建 pinia 環境
 # 安裝
 npm install pinia
+# // 第一步：引入 pinia
+# import { createPinia } from 'pinia'
+# // 創建應用
+# const app = createApp(App)
+# // 第二步：創建 pinia 實例
+# const pinia = createPinia()
+# // 第三步：安裝 pinia
+# app.use(pinia)
 
 # 使用庫，生成 ID
 npm install uuid
