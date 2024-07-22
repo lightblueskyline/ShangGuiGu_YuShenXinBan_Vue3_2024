@@ -9,7 +9,7 @@
                 </li>
                 <li class="nav-item">
                     <router-link active-class="active" class="list-group-item"
-                        to="/02_custom_event">02_custom-event</router-link>
+                        to="/02_custom-event">02_custom-event</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link active-class="active" class="list-group-item" to="/03_mitt">03_mitt</router-link>

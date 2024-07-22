@@ -57,6 +57,8 @@ const router = createRouter({
         },
         // 01_props
         { path: '/01_props', component: () => import('../pages/01_props/Father.vue') },
+        // 02_custom-event
+        { path: '/02_custom-event', component: () => import('../pages/02_custom-event/Father.vue') },
     ]
 })
 
