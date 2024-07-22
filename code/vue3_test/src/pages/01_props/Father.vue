@@ -2,7 +2,8 @@
     <div class="father">
         <h3>父组件</h3>
         <h4>摩托車：{{ car }}</h4>
-        <Child></Child>
+        <h4 v-show="toy">子組件傳入值：{{ toy }}</h4>
+        <Child :car="car" :sendToy="getToyFromChild"></Child>
     </div>
 </template>
 
@@ -11,6 +12,15 @@ import { ref } from 'vue'
 import Child from './Child.vue'
 
 let car = ref('Honda CB650R')
+let toy = ref('')
+
+/**
+ * props 子傳父
+ */
+function getToyFromChild(param: string) {
+    console.log('子傳父：', param)
+    toy.value = param
+}
 </script>
 
 <style scoped>

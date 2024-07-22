@@ -9,7 +9,7 @@
                 </li>
                 <li class="nav-item">
                     <router-link active-class="active" class="list-group-item"
-                        to="/02_custom_event">02_custom_event</router-link>
+                        to="/02_custom_event">02_custom-event</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link active-class="active" class="list-group-item" to="/03_mitt">03_mitt</router-link>
@@ -23,7 +23,7 @@
         <!-- Header -->
         <header class="bg-primary text-white text-center py-5">
             <div class="container">
-                <h1>Vue3 組件之間通信</h1>
+                <h1>Vue3 組件間通信</h1>
                 <p class="lead">A simple, responsive template with Bootstrap 4</p>
             </div>
         </header>
