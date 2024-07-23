@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <router-link active-class="active" class="list-group-item" to="/04_v-model">04_v-model</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link active-class="active" class="list-group-item" to="/05_$attrs">05_$attrs</router-link>
+                </li>
             </ul>
         </div>
     </nav>
