@@ -20,5 +20,6 @@ input {
     height: 30px;
     font-size: 20px;
     color: white;
+    border-radius: 6px;
 }
 </style>

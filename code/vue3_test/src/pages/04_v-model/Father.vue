@@ -2,6 +2,7 @@
     <div class="father">
         <h3>父组件</h3>
         <h4>摩托車：{{ car }}</h4>
+        <h4>{{ userName }}</h4>
         <br>
         <!-- v-model 用在 html 標簽上 -->
         <!-- <input type="text" v-model="userName"> -->
