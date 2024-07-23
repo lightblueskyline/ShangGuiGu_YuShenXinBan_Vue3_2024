@@ -134,3 +134,10 @@ npm install pinia
 npm install uuid
 npm install nanoid
 ```
+
+## mitt 組件之間通信
+
+```ps
+# 安裝
+npm install mitt
+```
