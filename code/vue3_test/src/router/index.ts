@@ -61,6 +61,8 @@ const router = createRouter({
         { path: '/02_custom-event', component: () => import('../pages/02_custom-event/Father.vue') },
         // 03_mitt
         { path: '/03_mitt', component: () => import('../pages/03_mitt/Father.vue') },
+        // 04_v-model
+        { path: '/04_v-model', component: () => import('../pages/04_v-model/Father.vue') },
     ]
 })
 
