@@ -71,25 +71,25 @@ let moto = reactive({
     price: 100000
 })
 //
-let games = reactive([
-    {
-        ID: 1,
-        name: '紅色警戒'
-    },
-    {
-        ID: 2,
-        name: '魔獸爭霸'
-    },
-    {
-        ID: 3,
-        name: '星際爭霸'
-    },
-    {
-        ID: 4,
-        name: '極品飛車'
-    }])
-let imageUrl = ref('https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
-let videoUrl = ref('https://www.youtube.com/watch?v=kTsA_IrtzEs')
+// let games = reactive([
+//     {
+//         ID: 1,
+//         name: '紅色警戒'
+//     },
+//     {
+//         ID: 2,
+//         name: '魔獸爭霸'
+//     },
+//     {
+//         ID: 3,
+//         name: '星際爭霸'
+//     },
+//     {
+//         ID: 4,
+//         name: '極品飛車'
+//     }])
+// let imageUrl = ref('https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+// let videoUrl = ref('https://www.youtube.com/watch?v=kTsA_IrtzEs')
 </script>
 
 <style scoped>

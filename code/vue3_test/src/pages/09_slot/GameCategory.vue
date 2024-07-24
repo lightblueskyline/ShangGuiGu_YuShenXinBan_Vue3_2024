@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts" name="GameCategory">
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 defineProps(['title'])
 

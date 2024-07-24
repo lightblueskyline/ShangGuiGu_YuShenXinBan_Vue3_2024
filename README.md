@@ -149,3 +149,11 @@ npm install mitt
 # 具名插槽
 # 作用域插槽
 ```
+
+## shallowRef & shallowReactive
+
+```javascript
+// 關注整體修改；修改時，只能修改第一層數據
+// shallowRef 只能監視 ref 定義的數據，不能監視 reactive 定義的數據
+// shallowReactive 只能監視 reactive 定義的數據，不能監視 ref 定義的數據
+```
