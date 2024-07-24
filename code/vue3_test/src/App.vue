@@ -21,7 +21,12 @@
                     <router-link active-class="active" class="list-group-item" to="/05_$attrs">05_$attrs</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link active-class="active" class="list-group-item" to="/06_$refs-$parent">06_$refs-$parent</router-link>
+                    <router-link active-class="active" class="list-group-item"
+                        to="/06_$refs-$parent">06_$refs-$parent</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link active-class="active" class="list-group-item"
+                        to="/07_provide-inject">07_provide-inject</router-link>
                 </li>
             </ul>
         </div>
