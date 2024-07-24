@@ -28,6 +28,12 @@
                     <router-link active-class="active" class="list-group-item"
                         to="/07_provide-inject">07_provide-inject</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link active-class="active" class="list-group-item" to="/08_pinia">08_pinia</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link active-class="active" class="list-group-item" to="/09_slot">09_slot</router-link>
+                </li>
             </ul>
         </div>
     </nav>

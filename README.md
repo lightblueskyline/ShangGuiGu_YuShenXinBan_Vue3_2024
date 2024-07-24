@@ -141,3 +141,11 @@ npm install nanoid
 # 安裝
 npm install mitt
 ```
+
+## slot
+
+```ps
+# 默認插槽
+# 具名插槽
+# 作用域插槽
+```

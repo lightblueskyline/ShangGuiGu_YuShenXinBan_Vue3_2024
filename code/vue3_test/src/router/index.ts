@@ -69,6 +69,8 @@ const router = createRouter({
         { path: '/06_$refs-$parent', component: () => import('../pages/06_$refs-$parent/Father.vue') },
         // 07_provide-inject
         { path: '/07_provide-inject', component: () => import('../pages/07_provide-inject/Father.vue') },
+        // 09_slot
+        { path: '/09_slot', component: () => import('../pages/09_slot/Father.vue') },
     ]
 })
 
