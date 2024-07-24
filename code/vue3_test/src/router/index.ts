@@ -65,6 +65,8 @@ const router = createRouter({
         { path: '/04_v-model', component: () => import('../pages/04_v-model/Father.vue') },
         // 05_$attrs
         { path: '/05_$attrs', component: () => import('../pages/05_$attrs/Father.vue') },
+        // 06_$refs-$parent
+        { path: '/06_$refs-$parent', component: () => import('../pages/06_$refs-$parent/Father.vue') },
     ]
 })
 
