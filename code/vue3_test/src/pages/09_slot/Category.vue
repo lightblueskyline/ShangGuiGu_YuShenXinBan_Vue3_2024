@@ -1,12 +1,14 @@
 <template>
     <div class="category">
-        <h2>{{ title }}</h2>
-        <slot>搭建中...</slot>
+        <!-- <h2>{{ title }}</h2>
+        <slot>默認插槽</slot> -->
+        <slot name="title">具名插槽-標題</slot>
+        <slot name="content">具名插槽-内容</slot>
     </div>
 </template>
 
 <script setup lang="ts" name="Category">
-import { reactive, ref } from 'vue'
+// import { reactive, ref } from 'vue'
 
 defineProps(['title'])
 </script>

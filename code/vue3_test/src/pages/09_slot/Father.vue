@@ -7,15 +7,30 @@
         <hr>
         <div class="content">
             <Category title="游戲列表">
-                <ul>
-                    <li v-for="item in games" :key="item.ID">{{ item.name }}</li>
-                </ul>
+                <template v-slot:content>
+                    <ul>
+                        <li v-for="item in games" :key="item.ID">{{ item.name }}</li>
+                    </ul>
+                </template>
+                <template v-slot:title>
+                    <h2>游戲列表</h2>
+                </template>
             </Category>
             <Category title="美食城市">
-                <img :src="imageUrl" alt="">
+                <template v-slot:content>
+                    <img :src="imageUrl" alt="">
+                </template>
+                <template v-slot:title>
+                    <h2>美食城市</h2>
+                </template>
             </Category>
             <Category title="影視推薦">
-                <video :src="videoUrl" controls></video>
+                <template #content>
+                    <video :src="videoUrl" controls></video>
+                </template>
+                <template #title>
+                    <h2>影視推薦</h2>
+                </template>
             </Category>
         </div>
     </div>
@@ -68,5 +83,15 @@ let videoUrl = ref('https://www.youtube.com/watch?v=kTsA_IrtzEs')
 img,
 video {
     width: 100%;
+}
+
+h2 {
+    text-align: center;
+    background-color: orange;
+    border-radius: 5px;
+    padding: 5px 0;
+    color: black;
+    font-size: 20px;
+    font-weight: 666;
 }
 </style>
