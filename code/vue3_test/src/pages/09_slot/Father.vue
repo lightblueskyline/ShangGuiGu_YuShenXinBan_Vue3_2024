@@ -6,39 +6,63 @@
         <h4>賬目：{{ account }}</h4>
         <hr>
         <div class="content">
-            <Category title="游戲列表">
+            <!-- <Category title="游戲列表">
                 <template v-slot:content>
                     <ul>
                         <li v-for="item in games" :key="item.ID">{{ item.name }}</li>
                     </ul>
                 </template>
-                <template v-slot:title>
+<template v-slot:title>
                     <h2>游戲列表</h2>
                 </template>
-            </Category>
-            <Category title="美食城市">
+</Category> -->
+            <!-- <Category title="美食城市">
                 <template v-slot:content>
                     <img :src="imageUrl" alt="">
                 </template>
                 <template v-slot:title>
                     <h2>美食城市</h2>
                 </template>
-            </Category>
-            <Category title="影視推薦">
+            </Category> -->
+            <!-- <Category title="影視推薦">
                 <template #content>
                     <video :src="videoUrl" controls></video>
                 </template>
                 <template #title>
                     <h2>影視推薦</h2>
                 </template>
-            </Category>
+            </Category> -->
+            <!-- 作用域插槽 -->
+            <GameCategory>
+                <template v-slot:gameCategory="params">
+                    <ul>
+                        <li v-for="item in params.slotGames" :key="item.ID">{{ item.name }}</li>
+                    </ul>
+                </template>
+            </GameCategory>
+            <GameCategory>
+                <template v-slot:gameCategory="params">
+                    <ol>
+                        <li v-for="item in params.slotGames" :key="item.ID">{{ item.name }}</li>
+                    </ol>
+                </template>
+            </GameCategory>
+            <GameCategory>
+                <!-- v-slot="{ slotGames }" 解構 params -->
+                <template #gameCategory="{ slotGames }">
+                    <h5 v-for="item in slotGames" :key="item.ID">{{ item.name }}</h5>
+                </template>
+            </GameCategory>
         </div>
     </div>
 </template>
 
 <script setup lang="ts" name="Father">
 import { reactive, ref } from 'vue'
-import Category from './Category.vue';
+// 默認插槽、具名插槽
+// import Category from './Category.vue';
+// 作用域插槽
+import GameCategory from './GameCategory.vue'
 
 let account = ref(100000)
 let moto = reactive({
