@@ -164,3 +164,10 @@ npm install mitt
 // readonly 只能讀取，不能修改
 // shallowReadonly 淺層次只讀，第一層不可修改，之後層次可修改
 ```
+
+## toRaw & markRaw
+
+```javascript
+// toRaw：獲取響應式對象的原始對象
+// markRaw：標記一個對象，使其永遠不會變成響應式的，使用第三方庫，例如使用：mockjs
+```
