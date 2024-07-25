@@ -171,3 +171,10 @@ npm install mitt
 // toRaw：獲取響應式對象的原始對象
 // markRaw：標記一個對象，使其永遠不會變成響應式的，使用第三方庫，例如使用：mockjs
 ```
+
+## customRef
+
+```javascript
+// 自定義 ref
+// v-model -> 雙向綁定
+```
