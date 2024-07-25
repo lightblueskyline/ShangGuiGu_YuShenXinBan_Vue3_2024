@@ -157,3 +157,10 @@ npm install mitt
 // shallowRef 只能監視 ref 定義的數據，不能監視 reactive 定義的數據
 // shallowReactive 只能監視 reactive 定義的數據，不能監視 ref 定義的數據
 ```
+
+## readonly & shallowReadonly
+
+```javascript
+// readonly 只能讀取，不能修改
+// shallowReadonly 淺層次只讀，第一層不可修改，之後層次可修改
+```
